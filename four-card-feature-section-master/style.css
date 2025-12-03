@@ -1,0 +1,172 @@
+:root {
+    --clr-primary-white: hsl(0, 0%, 100%);
+    --clr-secondary-red: hsl(0, 78%, 62%);
+    --clr-secondary-blue: hsl(212, 86%, 64%);
+    --clr-secondary-yellow: hsl(34, 97%, 64%);
+    --clr--secondary-cyan: hsl(180, 62%, 55%);
+    --clr-neutral-500: hsl(234, 12%, 34%);
+    --clr-neutral-400: hsl(212, 6%, 44%);
+
+    --ff-primary-font-family: 'Poppins', sans-serif;
+
+    --fw-100: 200;
+    --fw-300: 400;
+    --fw-500: 600;
+
+    --card-padding-: 20px;
+    --card-border-radius: 10px;
+    --top-bar-height: 4px;
+}
+
+/* ---------------- Reset ---------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  font-family: var(--ff-primary-font-family);
+  display: flex;
+  justify-content: center;
+  background: var(--clr-primary-white);
+  padding: 1rem;
+}
+
+/* ---------------- Heading ---------------- */
+
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+#heading_h1 {
+  font-weight: var(--fw-300);
+  color: var(--clr-neutral-500);
+}
+
+#heading_h2 {
+  font-weight: var(--fw-500);
+  color: var(--clr-neutral-500);
+  margin-bottom: 0.5rem;
+}
+
+.heading p {
+  color: var(--clr-neutral-400);
+  font-size: 0.95rem;
+}
+
+/* ---------------- Card Layout ---------------- */
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first */
+    gap: 1.5rem;
+    place-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+/* ---------------- Card ---------------- */
+
+.card {
+   position: relative;
+   background: var(--clr-primary-white);
+   border-radius: var(--card-border-radius);
+   padding: var(--card-padding-);
+   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+   width: 100%;
+   max-width: 350px;
+   height: auto;         /* Responsive height */
+}
+
+.top-bar {
+    height: var(--top-bar-height);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.red { background: var(--clr-secondary-red); }
+.blue { background: var(--clr-secondary-blue); }
+.yellow { background: var(--clr-secondary-yellow); }
+.cyan { background: var(--clr--secondary-cyan); }
+
+.card_heading {
+  font-weight: var(--fw-500);
+  color: var(--clr-neutral-500);
+  margin-bottom: 0.5rem;
+}
+
+.card_paragraph {
+  color: var(--clr-neutral-400);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Card images */
+.card img {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2rem;
+  width: 55px;
+  height: 55px;
+}
+
+/* Tall cards for desktop */
+.card1 {
+  grid-row: span 2;
+}
+.card3 {
+  grid-row: span 2;
+}
+
+/* ---------------- Tablet ---------------- */
+
+@media (min-width: 600px) {
+  .card-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------------- Desktop ---------------- */
+
+@media (min-width: 900px) {
+  .card-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+  }
+}
+
+/* ---------------- Very Small Screens (mobile ≤ 375px) ---------------- */
+
+@media (max-width: 375px) {
+
+  .card {
+      max-width: 100%;
+      padding: 1.3rem;
+  }
+
+  .card img {
+      position: static;
+      margin-top: 1rem;
+      width: 45px;
+      height: 45px;
+  }
+
+  /* No tall layout on tiny screens */
+  .card1,
+  .card3 {
+      grid-row: auto;
+  }
+}

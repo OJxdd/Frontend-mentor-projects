@@ -1,0 +1,235 @@
+:root {
+    --clr-primary-white: hsl(0, 0%, 100%);
+    --clr-secondary-red: hsl(0, 78%, 62%);
+    --clr-secondary-blue: hsl(212, 86%, 64%);
+    --clr-secondary-yellow: hsl(34, 97%, 64%);
+    --clr--secondary-cyan: hsl(180, 62%, 55%);
+    --clr-neutral-500: hsl(234, 12%, 34%);
+    --clr-neutral-400: hsl(212, 6%, 44%);
+
+    --ff-primary-font-family: 'Poppins', sans‑serif;
+
+    --fw-100: 200;
+    --fw-300: 400;
+    --fw-500: 600;
+
+     --card-padding-:20px;
+     --card-border-radius:10px;
+     --top-bar-height:4px;
+
+}
+
+
+
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+body {
+   display: grid;
+   place-content: center;
+   min-height: 100vh;
+   background-color: var(--clr-primary-white);
+   font-family: var(--ff-primary-font-family);
+
+}
+
+
+.heading {
+    text-align: center;
+    
+    margin-bottom: 70px;
+}
+
+#heading_h1 {
+  color: var(--clr-neutral-400);
+  font-weight:var(--fw-100);
+  font-size: 27px;
+  
+}
+
+#heading_h2 {
+ color: var(--clr-neutral-500);
+ font-size: 27px;
+ padding-bottom: 10px;
+}
+
+.heading p {
+  color: var(--clr-neutral-500);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    padding: 2rem;
+    place-items: center;
+
+
+}
+
+.card {
+   border: 0.1px solid white;
+   border-radius: var(--card-border-radius);
+   padding: var(--card-padding-);
+   background-color: var(--clr-primary-white);
+   box-shadow:0 5px 15px rgba(0,0,0,0.1);
+   position: relative;
+   overflow: hidden;
+   max-width: 350px;
+   height: 220px;
+  
+   
+}
+
+.top-bar {
+    height: 4px;
+    width: 100%;
+    background-color: var(--clr--secondary-cyan);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.red {
+  background-color: var(--clr-secondary-red);
+}
+
+.cyan {
+  background-color: var(--clr--secondary-cyan);
+}
+
+.blue {
+  background-color: var(--clr-secondary-blue);
+}
+
+.yellow {
+  background-color: var(--clr-secondary-yellow);
+}
+
+.card h3 {
+  font-weight: var(--fw-500);
+  margin-bottom: 0.5rem ;
+  color: var(--clr-neutral-500);
+  font-size: 18px;
+}
+
+.card p {
+  color: var(--clr-neutral-400);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.card img {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2.2rem;
+  width: 50px;
+  height: 50px;
+}
+
+.card1 {
+  grid-column: 1;
+  grid-row: 1/3;
+  justify-self: stretch;
+}
+
+.card3 {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  justify-self: stretch;
+}
+
+.card4 {
+  justify-self: stretch;
+}
+
+@media(max-width:480px) {
+   
+  .card-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 1rem;
+  }
+  
+  .card {
+    max-width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    
+  }
+  
+  .card img {
+    position: static;
+    margin-top: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+   
+  .card1,.card3 {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: stretch;
+  }
+
+  body {
+    padding: 1rem;
+  }
+  
+  .heading {
+    padding-top: 60px;
+  }
+}
